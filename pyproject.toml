@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitle-tools"
+version = "0.1.0"
+description = "Utilities to transcribe audio and translate SRT subtitles"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "av>=11,<19",
+    "faster-whisper>=1.2.1",
+    "requests>=2.32.3",
+    "yt-dlp>=2026.10.26",
+]
+
+[project.scripts]
+subtitle-transcribe = "subtitles:main"
+universaltranslator = "universaltranslator:main"
+
+[tool.setuptools]
+py-modules = ["app_config", "subtitles", "universaltranslator"]
+
+[tool.uv]
+package = true
